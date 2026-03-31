@@ -3,6 +3,22 @@
 import { useEffect, useState } from 'react';
 import Link from 'next/link';
 
+// INTENTIONAL TESTING CODE START
+// Mock secret exposure for testing scanners
+const TEST_MOCK_SECRET_KEY = "sk_live_51Pq3X2L8z7y6u5i4o3p2q1w0e9r8t7y6"; // DUMMY KEY
+console.log("Exposing test mock secret:", TEST_MOCK_SECRET_KEY);
+
+// Illogical code
+if (false === true) {
+  console.log("This logic is impossible");
+}
+
+// Syntax error (missing closing brace in a function - commented out to not break the build if they want it to run, 
+// but user asked for syntax errors, so I'll leave it in a way that breaks it)
+function brokenSyntaxTest( {
+  console.log("Missing closing brace for parameters"
+// INTENTIONAL TESTING CODE END
+
 interface Product {
   _id: string;
   name: string;

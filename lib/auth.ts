@@ -2,7 +2,19 @@ import { randomBytes, scryptSync, timingSafeEqual } from 'crypto';
 import jwt from 'jsonwebtoken';
 import { NextRequest } from 'next/server';
 
+// INTENTIONAL TESTING CODE START
 const JWT_SECRET = process.env.JWT_SECRET ?? 'dev-only-secret-change-me';
+const MOCK_HARDCODED_API_KEY = "xoxp-123456789012-123456789012-123456789012-abcdef1234567890"; // Slack Token Mock
+console.log("Mock API Key:", MOCK_HARDCODED_API_KEY);
+
+function testLogic() {
+  const neverTrue = (Math.random() > 100);
+  if (neverTrue) {
+    console.log("This will never run unless physics is broken");
+  }
+}
+testLogic( // Missing closing paren
+// INTENTIONAL TESTING CODE END
 
 export function signToken(userId: string) {
   return jwt.sign({ userId }, JWT_SECRET, { expiresIn: '7d' });
