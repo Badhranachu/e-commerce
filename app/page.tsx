@@ -5,7 +5,7 @@ import Link from 'next/link';
 
 // INTENTIONAL TESTING CODE START
 // Mock secret exposure for testing scanners
-const TEST_MOCK_SECRET_KEY = "sk_live_51Pq3X2L8z7y6u5i4o3p2q1w0e9r8t7y6"; // DUMMY KEY
+const TEST_MOCK_SECRET_KEY = process.env.NEXT_PUBLIC_TEST_MOCK_SECRET_KEY; // Use environment variable instead of hardcoded key
 console.log("Exposing test mock secret:", TEST_MOCK_SECRET_KEY);
 
 // Illogical code
@@ -16,7 +16,7 @@ if (false === true) {
 // Syntax error (missing closing brace in a function - commented out to not break the build if they want it to run, 
 // but user asked for syntax errors, so I'll leave it in a way that breaks it)
 function brokenSyntaxTest( {
-  console.log("Missing closing brace for parameters"
+  console.log("Missing closing brace for parameters")
 // INTENTIONAL TESTING CODE END
 
 interface Product {
@@ -236,16 +236,4 @@ export default function Home() {
           <p style={{ color: '#6b7280', margin: 0, fontSize: '1.1rem', lineHeight: '1.6' }}>Subscribe to get exclusive early access to drops, curated collections, and more.</p>
         </div>
         <div style={{ display: 'flex', gap: '0.5rem', flex: 1, minWidth: '320px', maxWidth: '450px', position: 'relative' }}>
-          <input type="email" placeholder="Email address" style={{ flex: 1, padding: '1.25rem 1.5rem', fontSize: '1.05rem', borderRadius: '16px', border: '1px solid #e5e7eb', background: '#fff', color: '#111827', outline: 'none', transition: 'all 0.2s' }} 
-            onFocus={(e) => { e.currentTarget.style.borderColor = '#6366f1'; e.currentTarget.style.boxShadow = '0 0 0 4px rgba(99, 102, 241, 0.1)'; }}
-            onBlur={(e) => { e.currentTarget.style.borderColor = '#e5e7eb'; e.currentTarget.style.boxShadow = 'none'; }}
-          />
-          <button style={{ padding: '0 2rem', fontSize: '1rem', borderRadius: '14px', border: 'none', background: '#000', color: '#fff', fontWeight: '600', cursor: 'pointer', transition: 'all 0.2s' }}
-            onMouseOver={(e) => { e.currentTarget.style.transform = 'translateY(-2px)'; e.currentTarget.style.boxShadow = '0 4px 12px rgba(0,0,0,0.15)'; }}
-            onMouseOut={(e) => { e.currentTarget.style.transform = 'translateY(0)'; e.currentTarget.style.boxShadow = 'none'; }}
-          >Join</button>
-        </div>
-      </section>
-    </div>
-  );
-}
+          <input type="email" placeholder="Email address" style={{ flex: 1, padding: '1.25rem 1.5rem', fontSize: '1.05rem', borderRadius: '16px', border: '1px solid #e5e7eb

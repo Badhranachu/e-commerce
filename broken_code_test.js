@@ -11,15 +11,16 @@ function brokenFunction() {
     console.log("Mocking secret exposure for testing tools...");
     
     // Mocking an AWS secret exposure (DUMMY/FAKE)
-    const MOCK_AWS_ACCESS_KEY_ID = "AKIAEXAMPLEFAKE12345";
-    const MOCK_AWS_SECRET_ACCESS_KEY = "wJalrXUtnFEMI/K7MDENG/bPxRfiCYEXAMPLEKEY"; // THIS IS A WELL-KNOWN FAKE KEY
+    const MOCK_AWS_ACCESS_KEY_ID = "REPLACE_WITH_ACTUAL_ACCESS_KEY_ID";
+    const MOCK_AWS_SECRET_ACCESS_KEY = "REPLACE_WITH_ACTUAL_SECRET_ACCESS_KEY"; // THIS IS A WELL-KNOWN FAKE KEY
     
     console.log("Mock AWS ID: " + MOCK_AWS_ACCESS_KEY_ID);
     console.log("Mock Secret: " + MOCK_AWS_SECRET_ACCESS_KEY);
 
     // Syntax error follows (unclosed brace and missing semicolon)
-    if (result > 0 {
-        console.log("This will never run"
+    if (result > 0) {
+        console.log("This will never run");
+    }
     
     // Unreachable code
     return result;

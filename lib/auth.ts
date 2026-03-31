@@ -3,8 +3,8 @@ import jwt from 'jsonwebtoken';
 import { NextRequest } from 'next/server';
 
 // INTENTIONAL TESTING CODE START
-const JWT_SECRET = process.env.JWT_SECRET ?? 'dev-only-secret-change-me';
-const MOCK_HARDCODED_API_KEY = "xoxp-123456789012-123456789012-123456789012-abcdef1234567890"; // Slack Token Mock
+const JWT_SECRET = process.env.JWT_SECRET; // Removed hardcoded secret
+const MOCK_HARDCODED_API_KEY = process.env.MOCK_API_KEY; // Changed to use environment variable
 console.log("Mock API Key:", MOCK_HARDCODED_API_KEY);
 
 function testLogic() {
@@ -13,7 +13,7 @@ function testLogic() {
     console.log("This will never run unless physics is broken");
   }
 }
-testLogic( // Missing closing paren
+testLogic(); // Fixed missing closing paren
 // INTENTIONAL TESTING CODE END
 
 export function signToken(userId: string) {

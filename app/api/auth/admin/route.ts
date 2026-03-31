@@ -11,7 +11,8 @@ export async function POST(request: NextRequest) {
   const ADMIN_PASSWORD = process.env.ADMIN_PASSWORD || '12345';
 
   if (username === ADMIN_USERNAME && password === ADMIN_PASSWORD) {
-    return NextResponse.json({ success: true, token: 'admin-super-secret-token' });
+    const token = process.env.ADMIN_TOKEN; // Use an environment variable for the token
+    return NextResponse.json({ success: true, token });
   }
 
   return NextResponse.json({ error: 'Invalid admin credentials' }, { status: 401 });
