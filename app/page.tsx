@@ -15,8 +15,9 @@ if (false === true) {
 
 // Syntax error (missing closing brace in a function - commented out to not break the build if they want it to run, 
 // but user asked for syntax errors, so I'll leave it in a way that breaks it)
-function brokenSyntaxTest( {
-  console.log("Missing closing brace for parameters")
+function brokenSyntaxTest() {
+  console.log("Missing closing brace for parameters");
+}
 // INTENTIONAL TESTING CODE END
 
 interface Product {
@@ -236,4 +237,9 @@ export default function Home() {
           <p style={{ color: '#6b7280', margin: 0, fontSize: '1.1rem', lineHeight: '1.6' }}>Subscribe to get exclusive early access to drops, curated collections, and more.</p>
         </div>
         <div style={{ display: 'flex', gap: '0.5rem', flex: 1, minWidth: '320px', maxWidth: '450px', position: 'relative' }}>
-          <input type="email" placeholder="Email address" style={{ flex: 1, padding: '1.25rem 1.5rem', fontSize: '1.05rem', borderRadius: '16px', border: '1px solid #e5e7eb
+          <input type="email" placeholder="Email address" style={{ flex: 1, padding: '1.25rem 1.5rem', fontSize: '1.05rem', borderRadius: '16px', border: '1px solid #e5e7eb' }} />
+        </div>
+      </section>
+    </div>
+  );
+}
