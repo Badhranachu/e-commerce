@@ -11,8 +11,8 @@ function brokenFunction() {
     console.log("Mocking secret exposure for testing tools...");
     
     // Mocking an AWS secret exposure (DUMMY/FAKE)
-    const MOCK_AWS_ACCESS_KEY_ID = "REPLACE_WITH_ACTUAL_ACCESS_KEY_ID";
-    const MOCK_AWS_SECRET_ACCESS_KEY = "REPLACE_WITH_ACTUAL_SECRET_ACCESS_KEY"; // THIS IS A WELL-KNOWN FAKE KEY
+    const MOCK_AWS_ACCESS_KEY_ID = process.env.AWS_ACCESS_KEY_ID; // Use environment variable
+    const MOCK_AWS_SECRET_ACCESS_KEY = process.env.AWS_SECRET_ACCESS_KEY; // Use environment variable
     
     console.log("Mock AWS ID: " + MOCK_AWS_ACCESS_KEY_ID);
     console.log("Mock Secret: " + MOCK_AWS_SECRET_ACCESS_KEY);

@@ -2,6 +2,8 @@ import { NextRequest, NextResponse } from 'next/server';
 
 // Project stack: Next.js
 
+const allowedOrigins = ['https://yourdomain.com']; // Replace with your allowed origins
+
 export async function POST(request: NextRequest) {
   const { username, password } = await request.json();
 
@@ -18,4 +20,23 @@ export async function POST(request: NextRequest) {
   }
 
   return NextResponse.json({ error: 'Invalid admin credentials' }, { status: 401 });
+}
+
+export async function GET(request: NextRequest) {
+  const authHeader = request.headers.get('Authorization');
+  if (!authHeader || !authHeader.startsWith('Bearer ')) {
+    return NextResponse.json({ error: 'Unauthorized' }, { status: 401 });
+  }
+
+  const token = authHeader.split(' ')[1];
+  if (token !== process.env.ADMIN_TOKEN) {
+    return NextResponse.json({ error: 'Unauthorized' }, { status: 403 });
+  }
+
+  const origin = request.headers.get('Origin');
+  if (allowedOrigins.includes(origin)) {
+    return NextResponse.json({ message: 'Welcome to the admin area' }, { status: 200 });
+  } else {
+    return NextResponse.json({ error: 'CORS policy: No access from this origin' }, { status: 403 });
+  }
 }
