@@ -1,5 +1,7 @@
 import { NextRequest, NextResponse } from 'next/server';
 
+// Project stack: Next.js
+
 export async function POST(request: NextRequest) {
   const { username, password } = await request.json();
 
